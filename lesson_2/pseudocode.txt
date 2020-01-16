@@ -1,0 +1,67 @@
+#1 A function that returns that returns the sum of two number.
+
+Given two numbers, n1 and n2
+Return the sum of the two numbers.
+
+START
+
+GET the value of two numbers.
+
+RETURN the sum o the numbers.
+
+END
+
+#2 A function that takes an array of strings, and returns a string
+that is all those strings concatenated together.
+
+Given an array of strings.
+Set a new variable equal to an empty string.
+Loop through each element of that array and concatenate each element to the 
+new variable.
+Once the loop finishes, return that variable to the caller.
+
+START
+
+GET the array of strings from the user.
+
+SET myString = empty string.
+SET iterator = 0
+
+WHILE iterator < the length of the calling array
+  SET currentString = user array's element at index of iterator
+  SET myString = myString + currentString
+  SET iterator = iterator + 1
+  
+RETURN myString
+
+END
+
+#3 A function that takes an array of  integers, and returns a new array 
+with every other element.
+
+Given an array of integers.
+Initialize a new empty array.
+Initialize a variable, call it push, and set it equal to true.
+Loop through each element of the array.
+If push is true, then add the element to the new array. If push is false,
+then do nothing.
+Set the push value to it's opposite. E.g. if true, then false.
+Once the loop is finished, return the new array to the caller.
+
+START
+
+GET userArray which is passed from the caller
+
+SET newArray = empty array []
+SET counter = 0
+SET push = true
+
+WHILE counter < userArray's length
+  SET currentVal = value of element at the index of iterator
+  IF push is true
+    add currentVal to newArray
+  SET push to it's opposite. i.e. push = !push
+  
+RETURN newArray
+
+END
