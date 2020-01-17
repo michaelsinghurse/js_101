@@ -32,13 +32,13 @@ function calculateMonthlyPayment(prin, apr, term) {
 
 function getAPR() {
 
-  console.log('What is the APR (Annual Percentage Rate)?\n' +
+  console.log('\nWhat is the APR (Annual Percentage Rate)?\n' +
     'For example, if the rate is 5.5%, enter 5.5');
 
   let rate = Number(rlSync.question());
 
   while (Number.isNaN(rate) || rate < 0) {
-    console.log('Huh. Something\'s wrong. Please don\'t include the percent ' +
+    console.log('\nHuh. Something\'s wrong. Please don\'t include the percent ' +
       'symbol or enter a negative rate.');
 
     rate = rlSync.question();
@@ -49,12 +49,12 @@ function getAPR() {
 
 function getPrincipal() {
 
-  console.log('What is the loan amount in dollars and cents?');
+  console.log('\nWhat is the loan amount in dollars and cents?');
 
   let principal = Number(rlSync.question());
 
   while (Number.isNaN(principal) || principal <= 0) {
-    console.log('Huh. That input didn\'t look right. Please provide a positive ' +
+    console.log('\nHuh. That input didn\'t look right. Please provide a positive ' +
       'number without the dollar sign.');
 
     principal = Number(rlSync.question());
@@ -65,13 +65,13 @@ function getPrincipal() {
 
 function getTermInYears() {
 
-  console.log('And what is the loan duration in years?');
+  console.log('\nAnd what is the loan duration in years?');
 
   let term = Number(rlSync.question());
 
   while (!Number.isInteger(term) || term < 0) {
 
-    console.log('Hmm. Something is wrong. The duration most be in whole ' +
+    console.log('\nHmm. Something is wrong. The duration most be in whole ' +
       'number of years (no decimals) and can\'t be negative or zero');
 
     term = Number(rlSync.question());
@@ -81,14 +81,14 @@ function getTermInYears() {
 }
 
 function greetUser() {
-  console.log('Welcome to the Loan Calculator!');
+  console.log('\nWelcome to the Loan Calculator!\n');
 }
 
 function printResults(principal, apr, term, payment) {
-    console.log('For the following terms...\n' +
+    console.log('\nFor the following terms...\n' +
       '\tAmount: $' + principal + '\n' +
       '\tAPR: ' + apr + '%\n' +
       '\tDuration: ' + term + ' years\n' +
-      'Your monthly payment is: $' + payment);
+      'Your monthly payment is: $' + payment + '\n');
 }
 
