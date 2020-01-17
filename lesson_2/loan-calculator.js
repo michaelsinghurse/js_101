@@ -35,49 +35,52 @@ function getAPR() {
   console.log('\nWhat is the APR (Annual Percentage Rate)?\n' +
     'For example, if the rate is 5.5%, enter 5.5');
 
-  let rate = Number(rlSync.question());
+  let rate = rlSync.question();
 
-  while (Number.isNaN(rate) || rate < 0) {
+  while (rate.trim() === '' || Number.isNaN(Number(rate)) || Number(rate) < 0) {
     console.log('\nHuh. Something\'s wrong. Please don\'t include the percent ' +
       'symbol or enter a negative rate.');
 
     rate = rlSync.question();
   }
 
-  return rate;
+  return Number(rate);
 }
 
 function getPrincipal() {
 
   console.log('\nWhat is the loan amount in dollars and cents?');
 
-  let principal = Number(rlSync.question());
+  let principal = rlSync.question();
 
-  while (Number.isNaN(principal) || principal <= 0) {
+  while (principal.trim() === '' || Number.isNaN(Number(principal)) ||
+         Number(principal) <= 0) {
+
     console.log('\nHuh. That input didn\'t look right. Please provide a positive ' +
       'number without the dollar sign.');
 
-    principal = Number(rlSync.question());
+    principal = rlSync.question();
   }
 
-  return principal;
+  return Number(principal);
 }
 
 function getTermInYears() {
 
   console.log('\nAnd what is the loan duration in years?');
 
-  let term = Number(rlSync.question());
+  let term = rlSync.question();
 
-  while (!Number.isInteger(term) || term < 0) {
+  while (term.trim() === '' || !Number.isInteger(Number(term)) ||
+         Number(term) < 0) {
 
     console.log('\nHmm. Something is wrong. The duration most be in whole ' +
       'number of years (no decimals) and can\'t be negative or zero');
 
-    term = Number(rlSync.question());
+    term = rlSync.question();
   }
 
-  return term;
+  return Number(term);
 }
 
 function greetUser() {
