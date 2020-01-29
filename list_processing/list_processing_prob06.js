@@ -1,0 +1,54 @@
+// list_processing_prob06.js
+
+function substringsAtStart(fullString) {
+  let substringArray = [];
+  
+  for (let idx = 1; idx <= fullString.length; idx += 1) {
+    substringArray.push(fullString.slice(0, idx));
+  }
+  
+  return substringArray;
+}
+
+function substrings(entireString) {
+  let allSubstringsArray = [];
+  
+  for (let idx = 0; idx < entireString.length; idx += 1) {
+    let subFromIndex = entireString.slice(idx);
+    
+    allSubstringsArray.push(...substringsAtStart(subFromIndex));
+  }
+  
+  return allSubstringsArray;
+}
+
+function isPalindrome(word) {
+  if (word.length < 2) {
+    return false;
+  }
+  
+  for (let idx = 0; idx < (word.length / 2); idx += 1) {
+    if (word[idx] !== word[word.length - 1 - idx]) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+function palindromes(text) {
+  return substrings(text).filter(element => isPalindrome(element));
+}
+
+console.log(palindromes('abcd'));       // []
+console.log(palindromes('madam'));      // [ "madam", "ada" ]
+
+console.log(palindromes('hello-madam-did-madam-goodbye'));
+// returns
+// [ "ll", "-madam-", "-madam-did-madam-", "madam", "madam-did-madam", "ada",
+//   "adam-did-mada", "dam-did-mad", "am-did-ma", "m-did-m", "-did-", "did",
+//   "-madam-", "madam", "ada", "oo" ]
+
+console.log(palindromes('knitting cassettes'));
+// returns
+// [ "nittin", "itti", "tt", "ss", "settes", "ette", "tt" ]
